@@ -1,5 +1,17 @@
-export const Table = () => {
+import { ToDo } from "../../models/ToDo"
+import { TableRow } from "../tableRow/TableRow"
+
+interface ITableProps {
+    tasks: ToDo[]
+}
+export const Table = (props:ITableProps) => {
+    const tableRows = props.tasks.map((aTask, i) => {
+        return <TableRow key={i} theTask={aTask}/>
+    })
+
     return (
+        <>
+            <h1>To Do</h1>
         <table>
             <thead>
                 <tr>
@@ -11,8 +23,9 @@ export const Table = () => {
             </thead>
 
             <tbody>
-                
+            {tableRows}
             </tbody>
         </table>
+        </>
     )
 }
