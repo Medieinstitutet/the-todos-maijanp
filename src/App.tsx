@@ -1,17 +1,29 @@
+import { useState } from "react";
 import "./App.css";
+import { AddTaskForm } from "./components/addTaskForm/AddTaskForm";
 import { Table } from "./components/table/Table";
 import { ToDo } from "./models/ToDo";
 
 function App() {
-  const tasks: ToDo[] = [
+  const savedTasks = JSON.parse(localStorage.getItem("tasks") || "[]")
+  const initialTasks: ToDo[] = [
     new ToDo("Relax", "Never", 10, false),
     new ToDo("Finish painting", "28-02-24", 5, false),
     new ToDo("Apply for 10 internships", "28-02-24", 10, false),
-    new ToDo("Finish this application", "26-01-24", 10, false),
-  ];
+    new ToDo("Finish this application", "26-01-24", 10, false)
+      ];
+
+  const [tasks, setTasks] = useState<ToDo[]>(savedTasks.length > 0 ? savedTasks : initialTasks);
+
+  const addNewTask = (newTask: ToDo) => {
+    const updatedTasks = [...tasks, newTask];
+    setTasks(updatedTasks)
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks))
+  }
   return (
     <>
-      <Table tasks={tasks} />
+      <Table tasks={tasks}/>
+      <AddTaskForm onAddTask={addNewTask}/>
     </>
   );
 }
