@@ -1,28 +1,26 @@
-import { useState } from "react";
+
 import { ToDo } from "../../models/ToDo"
 import styles from './TableRow.module.css'
 interface ITableRowProps {
     theTask: ToDo;
+    i:number;
+    onToggleStatus: (index: number) => void;
 }
 
-export const TableRow = ({theTask: {task, priority, deadline, isDone }, 
+export const TableRow = ({theTask: {task, priority, deadline, isDone }, i, onToggleStatus 
 }: ITableRowProps) => {
 
-    const [status, setStatus] = useState(isDone)
-
-    const handleClick =()=> {
-        if(status) {
-            setStatus(false)
-        } else{setStatus(true)}
-        
+    const handleClick = () => {
+        onToggleStatus(i)        
     }
+
     return (
         <>
         <tr className={styles.row}>
             <td>{task}</td>
             <td>{priority}</td>
             <td>{deadline}</td>
-            <td className={status ? styles.done : styles.notDone}> <button onClick={handleClick}>{status ? "Undo task" : "Mark as done"}</button></td>
+            <td> <button className={`${styles.button} ${isDone ? styles.done : styles.notDone}`}onClick={handleClick}>{isDone ? "Yep!" : "Nope!"}</button></td>
         </tr>
         </>
     )
