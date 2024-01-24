@@ -1,0 +1,13 @@
+.table{
+    background-color: rgb(196, 224, 203);
+    width: 100%;
+}
+
+
+.done{
+background-color: green;
+}
+
+.notDone{
+    background-color: red;
+}

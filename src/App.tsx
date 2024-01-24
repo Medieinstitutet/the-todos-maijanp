@@ -20,9 +20,16 @@ function App() {
     setTasks(updatedTasks)
     localStorage.setItem("tasks", JSON.stringify(updatedTasks))
   }
+
+  const toggleTaskStatus = (i: number) =>{
+    const newTasks = [...tasks];
+    newTasks[i].isDone = !newTasks[i].isDone;
+    setTasks(newTasks);
+    localStorage.setItem("tasks", JSON.stringify(newTasks))
+  }
   return (
     <>
-      <Table tasks={tasks}/>
+      <Table tasks={tasks} onToggleStatus={toggleTaskStatus}/>
       <AddTaskForm onAddTask={addNewTask}/>
     </>
   );
