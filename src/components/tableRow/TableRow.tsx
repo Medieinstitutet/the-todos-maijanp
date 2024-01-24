@@ -18,7 +18,7 @@ export const TableRow = ({theTask: {task, priority, deadline, isDone },
     }
     return (
         <>
-        <tr>
+        <tr className={styles.row}>
             <td>{task}</td>
             <td>{priority}</td>
             <td>{deadline}</td>
