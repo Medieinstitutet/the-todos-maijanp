@@ -3,8 +3,7 @@ import "./App.css";
 import { AddTaskForm } from "./components/addTaskForm/AddTaskForm";
 import { Table } from "./components/table/Table";
 import { ToDo } from "./models/ToDo";
-import upArrow from './images/up.png'
-import downArrow from './images/down.png'
+
 
 function App() {
   const savedTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
@@ -18,32 +17,25 @@ function App() {
   const [tasks, setTasks] = useState<ToDo[]>(
     savedTasks.length > 0 ? savedTasks : initialTasks
   );
-  const [sortOptions, setSortOptions] = useState<{
-    key: keyof ToDo;
-    direction: "ascending" | "descending";
-  } | null>(null);
-
-  const sortTasks = (key: keyof ToDo, direction: 'ascending' | 'descending') => {
+const [sortDirection, setSortDirection] = useState<'ascending' | 'descending'>('ascending')
+  
+const sortTasks = () => {
     let sortedTasks = [...tasks];
-    sortedTasks.sort((a: ToDo, b: ToDo) => {
-      if (a[key] < b[key]) {
-        return direction === "ascending" ? -1 : 1;
-      } else if (a[key] > b[key]) {
-        return direction === "ascending" ? 1 : -1;
+    sortedTasks.sort((a, b) => {
+      if (a.priority < b.priority) {
+        return sortDirection === "ascending" ? -1 : 1;
+      } else if (a.priority > b.priority) {
+        return sortDirection === "ascending" ? 1 : -1;
       }
       return 0;
     });
     setTasks(sortedTasks);
   };
 
-  const requestSort = (key: keyof ToDo) => {
-    let direction: 'ascending' | "descending" = sortOptions?.key === key && sortOptions?.direction==='ascending'
-    ? 'descending'
-    : 'ascending';
-   
-    setSortOptions({ key, direction });
-    sortTasks(key, direction);
-  };
+  const switchSortDirection = () => {
+    setSortDirection(lastDirection => lastDirection === 'ascending' ? 'descending' : 'ascending')
+    sortTasks()
+  }
 
   const addNewTask = (newTask: ToDo) => {
     const updatedTasks = [...tasks, newTask];
@@ -62,8 +54,8 @@ function App() {
       <Table
         tasks={tasks}
         onToggleStatus={toggleTaskStatus}
-        requestSort={requestSort}
-        imgUrl={sortOptions?.direction === 'ascending' ? upArrow : downArrow}
+        switchSortDirection={switchSortDirection}
+        sortDirection={sortDirection}
       />
       <AddTaskForm onAddTask={addNewTask} />
     </>

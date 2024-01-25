@@ -1,22 +1,26 @@
 import { ToDo } from "../../models/ToDo";
 import { TableRow } from "../tableRow/TableRow";
 import styles from "./table.module.css";
+import upArrow from '../../images/up.png'
+import downArrow from '../../images/down.png'
+
 interface ITableProps {
   tasks: ToDo[];
   onToggleStatus: (index: number) => void;
-  requestSort: (key: keyof ToDo) => void;
-  imgUrl: string
+  switchSortDirection: () => void;
+  sortDirection: 'ascending' | 'descending'
 }
-export const Table = ({ tasks, onToggleStatus, requestSort, imgUrl}: ITableProps) => {
+export const Table = ({ tasks, onToggleStatus, sortDirection, switchSortDirection}: ITableProps) => {
+    const sortIcon =  sortDirection === 'ascending' ? downArrow : upArrow
   return (
     <div className={styles.container}>
       <h1>To Do</h1>
       <table className={styles.table}>
         <thead>
           <tr>
-            <th onClick={() => requestSort("task")}>Task</th>
-            <th>Priority <img className={styles.icon} onClick={() => requestSort("priority")} src={imgUrl} alt=""/></th>
-            <th onClick={() => requestSort("deadline")}>Due Date</th>
+            <th>Task</th>
+            <th>Priority <img className={styles.icon} onClick={switchSortDirection} src={sortIcon} alt=""/></th>
+            <th>Due Date</th>
             <th>  Done?</th>
           </tr>
         </thead>
