@@ -1,8 +1,15 @@
 .table{
-    background-color: rgb(196, 224, 203);
+    background-color:  rgb(255, 249, 234);
     width: 100%;
+    padding: 1rem;
+    border-radius: 20px;
+    border-collapse: collapse;
 }
 
+.container{
+    background-color: rgb(255, 249, 234);
+    padding: 1rem;
+}
 
 .done{
 background-color: green;
@@ -10,4 +17,8 @@ background-color: green;
 
 .notDone{
     background-color: red;
+}
+
+.firstRow{
+
 }

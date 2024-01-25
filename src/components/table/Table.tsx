@@ -7,24 +7,25 @@ interface ITableProps {
 }
 export const Table = ({tasks, onToggleStatus} : ITableProps) => {
     return (
-        <>
-            <h1>To Do</h1>
-        <table className={styles.table}>
-            <thead>
-                <tr>
-                    <th>Task</th>
-                    <th>Priority</th>
-                    <th>Due Date</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-
-            <tbody>
-            {tasks.map((task, i) => (
-                <TableRow  key={i} theTask={task} i={i} onToggleStatus={onToggleStatus}/>
-            ))}
-            </tbody>
-        </table>
-        </>
+       
+            <div className={styles.container}>
+                <h1>To Do</h1>
+                        <table className={styles.table}>
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Priority</th>
+                        <th>Due Date</th>
+                        <th>Done?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {tasks.map((task, i) => (
+                    <TableRow  key={i} theTask={task} i={i} onToggleStatus={onToggleStatus}/>
+                ))}
+                </tbody>
+                        </table>
+            </div>
+        
     )
 }
