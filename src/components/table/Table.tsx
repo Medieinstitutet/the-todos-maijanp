@@ -15,9 +15,9 @@ export const Table = ({ tasks, onToggleStatus, requestSort, imgUrl}: ITableProps
         <thead>
           <tr>
             <th onClick={() => requestSort("task")}>Task</th>
-            <th> <img className={styles.icon} onClick={() => requestSort("priority")} src={imgUrl} alt=""/>Priority</th>
+            <th>Priority <img className={styles.icon} onClick={() => requestSort("priority")} src={imgUrl} alt=""/></th>
             <th onClick={() => requestSort("deadline")}>Due Date</th>
-            <th onClick={() => requestSort("isDone")}>  Done?</th>
+            <th>  Done?</th>
           </tr>
         </thead>
         <tbody>
@@ -31,6 +31,6 @@ export const Table = ({ tasks, onToggleStatus, requestSort, imgUrl}: ITableProps
           ))}
         </tbody>
       </table>
-    </div>
+ </div>
   );
 };
