@@ -1,24 +1,33 @@
-.table{
-    background-color:  rgb(255, 249, 234);
-    width: 100%;
-    padding: 1rem;
-    border-radius: 20px;
+table{
+    background-color:  rgb(226, 236, 255);
+    width: 60%s;
+    padding: 2rem;
     border-collapse: collapse;
+    margin: auto;
+    text-align: left;
+    border-spacing: 50px;
 }
 
 .container{
-    background-color: rgb(255, 249, 234);
+    background-color:  rgb(226, 236, 255);
     padding: 1rem;
 }
 
-.done{
-background-color: green;
+.icon{
+    height: 15px;
 }
 
-.notDone{
-    background-color: red;
+.icon:hover{
+    cursor: pointer;
 }
 
-.firstRow{
+tr{
+    padding: 2rem;
+}
 
+th{
+    text-align: left;
+    font-size: 1.3rem;
+    padding-right: 1rem;
+    border-bottom: 1px solid rgb(109, 115, 151);
 }

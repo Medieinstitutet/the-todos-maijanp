@@ -21,7 +21,7 @@ export const TableRow = ({
         <td>{task}</td>
         <td>{priority}</td>
         <td>{deadline}</td>
-        <td>
+        <td className={styles.statusCol}>
           {" "}
           <button
             className={`${styles.button} ${

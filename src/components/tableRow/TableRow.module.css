@@ -26,13 +26,17 @@
 }
 
 .done {
-  color: #b3d3b4;
-  background-color: rgb(79, 147, 76);
+  color: white;
+  background-color: rgb(229, 190, 253);
+  box-shadow: 0px 6px 0px #bc78c8;
+    transition: 0.4s;
 }
 
 .notDone {
-  color: #ffdddd;
-  background-color: rgb(238, 137, 137);
+  color: #475a83;
+  background-color: rgb(190, 215, 253);
+  box-shadow: 0px 6px 0px #7d78c8;
+  transition: 0.4s;
 }
 
 .row{
@@ -41,4 +45,7 @@
 }
 
 td{
+padding: 1rem;
+padding-left: 0;
+text-align: left;
 }
