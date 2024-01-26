@@ -1,5 +1,5 @@
 :root {
-  font-family: 'Gloria Hallelujah', cursive;
+  font-family: monospace;
   line-height: 1.5;
   font-weight: 400;
 
@@ -17,10 +17,10 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-background-attachment: fixed;
-display: flex;
-justify-content: center;
-align-items: center;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 a {
@@ -36,7 +36,6 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-
 }
 
 h1 {
