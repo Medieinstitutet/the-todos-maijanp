@@ -1,14 +1,17 @@
 import { ToDo } from "../../models/ToDo";
 import styles from "./TableRow.module.css";
+import trashIcon from "../../images/trash.png";
 interface ITableRowProps {
   theTask: ToDo;
   i: number;
   onToggleStatus: (index: number) => void;
+  onDeleteTask: (index: number) => void;
 }
 
 export const TableRow = ({
   theTask: { task, priority, deadline, isDone },
   i,
+  onDeleteTask,
   onToggleStatus,
 }: ITableRowProps) => {
   const handleClick = () => {
@@ -31,6 +34,13 @@ export const TableRow = ({
           >
             {isDone ? "Yep!" : "Nope!"}
           </button>
+        </td>
+        <td className={styles.deleteCell}>
+          <img
+            className={styles.icon}
+            onClick={() => onDeleteTask(i)}
+            src={trashIcon}
+          />
         </td>
       </tr>
     </>
