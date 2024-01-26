@@ -1,0 +1,55 @@
+.button {
+  width: 100px;
+  padding: 12px 24px;
+  border: none;
+  font-size: 16px;
+  background-color: inherit;
+  border-radius: 100px;
+  font-weight: 600;
+  box-shadow: 0 0 0 2px #ffffff20;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  outline: none;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:hover {
+  box-shadow: 0 0 0 5px #f3f3f300;
+}
+
+.done {
+  color: #713a7b;
+  background-color: rgb(255, 215, 234);
+  box-shadow: 0px 6px 0px #e494cc;
+  transition: 0.4s;
+}
+
+.notDone {
+  color: #475a83;
+  background-color: rgb(190, 215, 253);
+  box-shadow: 0px 6px 0px #9791e9;
+  transition: 0.4s;
+}
+
+.row {
+  border-bottom: 1px dotted black;
+}
+
+td {
+  padding: 1rem;
+  padding-left: 0;
+  text-align: left;
+}
+
+.icon {
+  margin: auto;
+  width: 30px;
+}
+
+.deleteCell {
+  text-align: center;
+}
